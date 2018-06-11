@@ -1,9 +1,11 @@
 package com.logic;
+
 import java.util.Scanner;
 
-public class Logic {
-	int i1,i2,i3,i4,i5,x,num,num1,sum=0;
-	int max=0,min=0,temp=0,add,stableNumCount=0,unstableNumCount=0,numCount;
+public class Logic1 {
+
+	int i1,i2,i3,i4,i5,x,num,num1,sum=0,max=0,min=0,temp=0,add,stableNumCount=0,unstableNumCount=0;
+	int numCount;
 	public int findPassword(int input1,int input2,int input3,int input4,int input5) {
 		i1=input1;
 		i2=input2;
@@ -11,7 +13,6 @@ public class Logic {
 		i4=input4;
 		i5=input5;
 		int a[]= {i1,i2,i3,i4,i5};
-		//to get value from a[]
 		for(x=0;x<a.length;x++) {
 			num=a[x];
 			num1=Integer.toString(num).length();
@@ -32,35 +33,33 @@ public class Logic {
 				}
 			}	
 				if(count%2==0|count%num1==0) {
-					stableNumCount++;//number of stable number
-					//to find maximum number of all stable number
+					stableNumCount++;
 					if(max<a[x]) {
 						max=a[x];
 						temp=max;
 					}
+					
 				}
 				else {
-				     sum=sum+a[x];
-				     unstableNumCount++;//number of unstable number
-				     min=temp;
-				     //to find minimum number of all unstable number
-						if(min>a[x] ){
-							min=a[x];
-							temp=min;
-						}
+					unstableNumCount++;
+					sum=sum+a[x];
+					min=temp;
+					if(min>a[x] ){
+						min=a[x];
+						temp=min;
+					}
 				}
-				}
+					}
 		numCount=(unstableNumCount*10)+stableNumCount;
-		System.out.println("password1=(unstableNumCount*10)+stableNumCount");
 		System.out.println(numCount);
+		System.out.println(max);
+		System.out.println(min);
 		//addition of (maximum of all stable numbers + minimum of all unstable numbers )
-		System.out.println("password2=(maximum of all stable numbers + minimum of all unstable numbers )");		
 		System.out.println(max+min);
-		System.out.println("Sum of all unstable number:");
 		return sum;
 		}
 	public static void main(String args[]) {
-	Logic logic=new Logic();
+	Logic1 logic=new Logic1();
 	Scanner scanner=new Scanner(System.in);
 	System.out.println("enter the five number which are available in the kids:");
     int input1=scanner.nextInt();
@@ -68,6 +67,7 @@ public class Logic {
     int input3=scanner.nextInt();
     int input4=scanner.nextInt();
     int input5=scanner.nextInt();
-    System.out.println("password3="+logic.findPassword(input1,input2,input3,input4,input5));
+    System.out.println("The password is="+logic.findPassword(input1,input2,input3,input4,input5));
 	}
 }
+
