@@ -1,6 +1,6 @@
 package com.logic;
 
-public class TestingPurpose {
+public class StableOrUnstable {
 	
 	public static void main(String[] args) {
 	//int n=1234;
